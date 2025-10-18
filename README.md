@@ -1,0 +1,1 @@
+uv run fastmcp install claude-desktop main.py

@@ -32,5 +32,17 @@ def get_file_info(file_key: str):
     return s3_manager.get_file_info(file_key)
 
 
+@mcp.tool(name="download_file")
+def download_file(file_key: str, destination_path: str):
+    """
+    A tool to download a file from S3.
+
+    This tool takes a file key and a destination path, and it downloads the
+    file from S3 to the specified local path.
+    """
+    # Use the S3Manager to download the file and return the response
+    return s3_manager.download_file(file_key, destination_path)
+
+
 if __name__ == "__main__":
     mcp.run()

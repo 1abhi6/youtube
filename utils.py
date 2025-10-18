@@ -7,9 +7,7 @@ import boto3
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 
-# Load environment variables from a .env file
 load_dotenv()
-
 
 class S3Manager:
     """
@@ -110,6 +108,33 @@ class S3Manager:
                 if response.get("LastModified")
                 else None,
             }
+        
         except ClientError:
             # If head_object raises a ClientError, it usually means the file was not found.
             return {"file_key": file_key, "exists": False, "error": "File not found"}
+
+    def download_file(self, file_key: str, destination_path: str) -> dict:
+        """
+        Downloads a file from S3 to the local filesystem.
+
+        Args:
+            file_key (str): The S3 key of the file to download.
+            destination_path (str): The local path where the file should be saved.
+
+        Returns:
+            dict: A dictionary with the status of the download.
+        """
+        try:
+            # Use the download_file method to save the file locally.
+            self.s3_client.download_file(self.bucket_name, file_key, destination_path)
+
+            # Return a success message.
+            return {
+                "status": "success",
+                "message": f"File {file_key} downloaded to {destination_path}",
+            }
+        except ClientError:
+            # If download_file raises a ClientError, it could be due to
+            # the file not existing or other permission issues.
+            return {"status": "error", "message": "File not found or access denied"}
+
