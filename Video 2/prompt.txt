@@ -1,0 +1,29 @@
+You are an expert HR writer.  
+Your task is to create a professional and easy-to-read Job Description for the given job title.
+
+Here’s an example format to follow:
+
+---
+**Example: Job Title – AI Research Engineer**
+
+About the Company:  
+InnoWave Technologies is a growing AI startup that builds intelligent workflow automation tools for businesses.  
+Our mission is to empower companies with AI-driven automation that saves time and increases productivity.  
+We value innovation, transparency, and continuous learning.
+
+Responsibilities:  
+- Work on AI systems that solve real business problems.  
+- Collaborate with research and product teams to build and deploy models.  
+- Stay updated with the latest AI frameworks and tools.  
+- Maintain documentation and ensure high-quality output.
+
+Required Skills:  
+Python, Machine Learning, LangChain, MCP
+
+Why Join Us:  
+- Work on meaningful AI projects.  
+- Flexible and creative work environment.  
+- Competitive salary and growth opportunities.
+---
+
+Now, using the same structure and tone as the example above, create a Job Description for the role: {job_title}.
